@@ -1,9 +1,7 @@
 # RowingChampionships_database
-# Raport Baza Danych
 
 ## Autor
 **Imię Nazwisko:** Olga Rodziewicz  
-**Indeks:** 198421  
 
 ## Temat projektu
 Zawody sportowe, sportowcy, wyniki tych zawodów (na przykładzie Młodzieżowych Mistrzostw Polski w wioślarstwie - MP).  
@@ -35,9 +33,8 @@ Celem bazy jest ułatwienie pracy głównemu sędziemu w przypisywaniu wyścigó
 
 ## 2. Diagram ERD
 
-![Diagram ERD](path/to/erd-image.png)  
+![Diagram ERD](img/erd_final.png)  
 
-> **Uwaga:** Wstaw tutaj diagram ERD w formacie graficznym.
 
 ---
 
@@ -53,7 +50,36 @@ Celem bazy jest ułatwienie pracy głównemu sędziemu w przypisywaniu wyścigó
 | Płeć         | Nie   | CHAR(1)  | Wartości: "M" (mężczyzna), "K" (kobieta).                        |
 | Klub         | Nie   | INTEGER  | Odniesienie do klubu (klucz obcy do `Klub`).                     |
 
+
 ### 3.2 Klub
+| Nazwa        | Klucz | Typ      | Opis                                                              |
+|--------------|-------|----------|-------------------------------------------------------------------|
+| skrót_nazwy  | Tak   | CHAR(5)  | Unikalny identyfikator klubu.                                     |
+| Pełna_Nazwa  | Nie   | VARCHAR  | Pełna nazwa klubu.                                               |
+| Wzór_wioseł  | Nie   | VARCHAR  | Opis koloru i zdobień wioseł.                                    |
+
 ...
 
-Więcej sekcji mogę dodać w podobnym formacie. Jeśli akceptujesz wstępną strukturę, mogę przekonwertować całość i przygotować plik `.md`. Daj znać, czy wprowadzić dodatkowe zmiany!
+---
+
+## 4. Schemat relacyjnej bazy danych
+
+```sql
+KLUB (skrót_nazwy, Pełna_nazwa, Wzór_wioseł)
+ZAWODNIK (Pesel, Imię, Nazwisko, Data_urodzenia, Płeć, trenuje REF Klub)
+TRENER (nr_licencji_trenera, Imię, Nazwisko, pracuje REF Klub, data_ważności_licencji)
+OSADA (id_osady, nadzoruje REF trener, łódź)
+CZŁONEK_OSADY (przynależy REF zawodnik, należy do REF Osada, czy sternik)
+SĘDZIA (nr_licencji_sędziego, Imię, Nazwisko, data_ważności_licencji)
+KATEGORIE (symbol, nazwa, ilość osób, płeć, Maks_wiek, Wymaga_sternika)
+WYŚCIG (nr_wyścigu, data, sędziuje REF sędzia, godzina, przypisany do REF Kategoria, opis)
+ZGŁOSZENIE_DO_WYSCIGU (zgłasza się REF osada, zgłasza się do REF wyścig, status płatności, Czy_dopuszczono_do_startu)
+WYNIKI (uzyskane w REF Wyścig, uzyskane przez REF Osada, miejsce, czas)
+```
+
+---
+
+## 5. Podsumowanie
+
+Baza danych dla organizacji zawodów wioślarskich zapewnia uporządkowanie i transparentność, wspomaga pracę organizatorów oraz zawodników. System umożliwia efektywne zarządzanie wszystkimi aspektami zawodów, od rejestracji po wyniki końcowe.
+
