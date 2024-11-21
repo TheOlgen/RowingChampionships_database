@@ -33,7 +33,7 @@ Celem bazy jest ułatwienie pracy głównemu sędziemu w przypisywaniu wyścigó
 
 ## 2. Diagram ERD
 
-![Diagram ERD](img/erd_final.png)  
+![Diagram ERD](img/Erd_final.png)  
 
 
 ---
