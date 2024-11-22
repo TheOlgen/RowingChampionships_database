@@ -11,7 +11,7 @@ Zawody sportowe, sportowcy, wyniki tych zawodów (na przykładzie Młodzieżowyc
 ## Opis projektu
 
 ### 1.1 Klient
-Przewodniczący Komitetu Organizacyjnego – Stefan Janek, z ramienia PZTW (Polski Związek Towarzystw Wioślarskich).  
+Przewodniczący Komitetu Organizacyjnego z ramienia PZTW (Polski Związek Towarzystw Wioślarskich).  
 
 ### 1.2 Cel bazy
 Celem bazy jest ułatwienie pracy głównemu sędziemu w przypisywaniu wyścigów sędziom, zapobieganie opóźnieniom oraz organizowanie wyników.  
