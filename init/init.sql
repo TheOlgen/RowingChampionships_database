@@ -5,8 +5,8 @@ USE Regaty;
 -- Tworzenie tabel
 CREATE TABLE KLUB (
     skrot_nazwy VARCHAR(10) PRIMARY KEY,
-    pelna_nazwa VARCHAR(50) NOT NULL UNIQUE,
-    wzor_wiosel VARCHAR(50)
+    pelna_nazwa VARCHAR(100) NOT NULL UNIQUE,
+    wzor_wiosel VARCHAR(150)
 );
 
 CREATE TABLE ZAWODNIK (
