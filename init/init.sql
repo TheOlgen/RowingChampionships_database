@@ -6,7 +6,7 @@ USE Regaty;
 CREATE TABLE KLUB (
     skrot_nazwy VARCHAR(10) PRIMARY KEY,
     pelna_nazwa VARCHAR(50) NOT NULL UNIQUE,
-    wzo_wiosel VARCHAR(50)
+    wzor_wiosel VARCHAR(50)
 );
 
 CREATE TABLE ZAWODNIK (
