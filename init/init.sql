@@ -63,7 +63,7 @@ CREATE TABLE KATEGORIE (
 CREATE TABLE WYŚCIG (
     nr_wyscigu INT PRIMARY KEY AUTO_INCREMENT,
     data DATE NOT NULL,
-    sedziuje INT NOT NULL,
+    sedziuje INT,
     godzina TIME NOT NULL,
     przypisany_do CHAR(5) NOT NULL,
     opis TEXT,
@@ -75,7 +75,7 @@ CREATE TABLE ZGŁOSZENIE_DO_WYŚCIGU (
     zglasza_sie INT NOT NULL,
     zglasza_sie_do INT NOT NULL,
     status_platnosci VARCHAR(20) NOT NULL CHECK (status_platnosci IN ('opłacone', 'nieopłacone')),
-    czy_dopuszczono_do_startu BOOLEAN NOT NULL,
+    czy_dopuszczono_do_startu BOOLEAN,
     PRIMARY KEY (zglasza_sie, zglasza_sie_do),
     FOREIGN KEY (zglasza_sie) REFERENCES OSADA(id_osady),
     FOREIGN KEY (zglasza_sie_do) REFERENCES WYŚCIG(nr_wyscigu)
