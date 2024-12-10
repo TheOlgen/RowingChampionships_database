@@ -1,0 +1,11 @@
+DROP TABLE `regaty`.`członek_osady`
+DROP TABLE `regaty`.`zgloszenie_do_wyscigu`
+DROP TABLE `regaty`.`wyniki`
+DROP TABLE `regaty`.`wyscig`
+DROP TABLE `regaty`.`kategorie`
+DROP TABLE `regaty`.`sędzia`
+DROP TABLE `regaty`.`zawodnik`
+DROP TABLE `regaty`.`osada`
+DROP TABLE `regaty`.`trener`
+DROP TABLE `regaty`.`klub`
+DROP DATABASE `regaty`
