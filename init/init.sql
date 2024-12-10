@@ -56,11 +56,11 @@ CREATE TABLE KATEGORIE (
     nazwa VARCHAR(50) NOT NULL,
     ilosc_osob INT NOT NULL CHECK (ilosc_osob > 0),
     plec CHAR(1) NOT NULL CHECK (plec IN ('M', 'K')),
-    maks_wiek INT NOT NULL CHECK (maks_wiek > 0),
+    maks_wiek INT CHECK (maks_wiek > 0),
     wymaga_sternika BOOLEAN NOT NULL
 );
 
-CREATE TABLE WYŚCIG (
+CREATE TABLE WYSCIG (
     nr_wyscigu INT PRIMARY KEY AUTO_INCREMENT,
     data DATE NOT NULL,
     sedziuje INT,
@@ -71,14 +71,14 @@ CREATE TABLE WYŚCIG (
     FOREIGN KEY (przypisany_do) REFERENCES KATEGORIE(symbol)
 );
 
-CREATE TABLE ZGŁOSZENIE_DO_WYŚCIGU (
+CREATE TABLE ZGLOSZENIE_DO_WYSCIGU (
     zglasza_sie INT NOT NULL,
     zglasza_sie_do INT NOT NULL,
     status_platnosci VARCHAR(20) NOT NULL CHECK (status_platnosci IN ('opłacone', 'nieopłacone')),
     czy_dopuszczono_do_startu BOOLEAN,
     PRIMARY KEY (zglasza_sie, zglasza_sie_do),
     FOREIGN KEY (zglasza_sie) REFERENCES OSADA(id_osady),
-    FOREIGN KEY (zglasza_sie_do) REFERENCES WYŚCIG(nr_wyscigu)
+    FOREIGN KEY (zglasza_sie_do) REFERENCES WYSCIG(nr_wyscigu)
 );
 
 CREATE TABLE WYNIKI (
@@ -87,6 +87,6 @@ CREATE TABLE WYNIKI (
     miejsce INT NOT NULL CHECK (miejsce > 0),
     czas TIME NOT NULL,
     PRIMARY KEY (uzyskane_w, uzyskane_przez),
-    FOREIGN KEY (uzyskane_w) REFERENCES WYŚCIG(nr_wyscigu),
+    FOREIGN KEY (uzyskane_w) REFERENCES WYSCIG(nr_wyscigu),
     FOREIGN KEY (uzyskane_przez) REFERENCES OSADA(id_osady)
 );
