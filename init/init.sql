@@ -5,7 +5,7 @@ USE Regaty;
 -- Tworzenie tabel
 CREATE TABLE KLUB (
     skrot_nazwy VARCHAR(10) PRIMARY KEY,
-    pelna_nazwa VARCHAR(100) NOT NULL UNIQUE,
+    pelna_nazwa VARCHAR(150) NOT NULL UNIQUE,
     wzor_wiosel VARCHAR(150)
 );
 
@@ -22,7 +22,7 @@ CREATE TABLE ZAWODNIK (
 CREATE TABLE TRENER (
     nr_licencji_trenera INT PRIMARY KEY,
     imie VARCHAR(30) NOT NULL,
-    nazwisko VARCHAR(30) NOT NULL,
+    nazwisko VARCHAR(50) NOT NULL,
     pracuje_w VARCHAR(10) NOT NULL,
     data_waznosci_licencji DATE NOT NULL,
     FOREIGN KEY (pracuje_w) REFERENCES KLUB(skrot_nazwy)
@@ -31,7 +31,7 @@ CREATE TABLE TRENER (
 CREATE TABLE OSADA (
     id_osady INT PRIMARY KEY AUTO_INCREMENT,
     nadzoruje INT NOT NULL,
-    lodz VARCHAR(50),
+    lodz VARCHAR(150),
     FOREIGN KEY (nadzoruje) REFERENCES TRENER(nr_licencji_trenera)
 );
 
