@@ -16,7 +16,7 @@ CREATE TABLE ZAWODNIK (
     data_urodzenia DATE NOT NULL,
     plec CHAR(1) NOT NULL CHECK (plec IN ('M', 'K')),
     trenuje_w VARCHAR(10) NOT NULL,
-    FOREIGN KEY (trenuje_w) REFERENCES KLUB(skrot_nazwy)
+    FOREIGN KEY (trenuje_w) REFERENCES KLUB(skrot_nazwy) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE TRENER (
@@ -25,14 +25,14 @@ CREATE TABLE TRENER (
     nazwisko VARCHAR(50) NOT NULL,
     pracuje_w VARCHAR(10) NOT NULL,
     data_waznosci_licencji DATE NOT NULL,
-    FOREIGN KEY (pracuje_w) REFERENCES KLUB(skrot_nazwy)
+    FOREIGN KEY (pracuje_w) REFERENCES KLUB(skrot_nazwy) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE OSADA (
     id_osady INT PRIMARY KEY AUTO_INCREMENT,
     nadzoruje INT NOT NULL,
     lodz VARCHAR(150),
-    FOREIGN KEY (nadzoruje) REFERENCES TRENER(nr_licencji_trenera)
+    FOREIGN KEY (nadzoruje) REFERENCES TRENER(nr_licencji_trenera) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE CZŁONEK_OSADY (
@@ -40,8 +40,8 @@ CREATE TABLE CZŁONEK_OSADY (
     nalezy_do INT NOT NULL,
     czy_sternik BOOLEAN NOT NULL,
     PRIMARY KEY (przynalezy, nalezy_do),
-    FOREIGN KEY (przynalezy) REFERENCES ZAWODNIK(pesel),
-    FOREIGN KEY (nalezy_do) REFERENCES OSADA(id_osady)
+    FOREIGN KEY (przynalezy) REFERENCES ZAWODNIK(pesel) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (nalezy_do) REFERENCES OSADA(id_osady) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE SĘDZIA (
@@ -67,8 +67,8 @@ CREATE TABLE WYSCIG (
     godzina TIME NOT NULL,
     przypisany_do CHAR(5) NOT NULL,
     opis TEXT,
-    FOREIGN KEY (sedziuje) REFERENCES SĘDZIA(nr_licencji_sedziego),
-    FOREIGN KEY (przypisany_do) REFERENCES KATEGORIE(symbol)
+    FOREIGN KEY (sedziuje) REFERENCES SĘDZIA(nr_licencji_sedziego) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (przypisany_do) REFERENCES KATEGORIE(symbol) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE ZGLOSZENIE_DO_WYSCIGU (
@@ -77,8 +77,8 @@ CREATE TABLE ZGLOSZENIE_DO_WYSCIGU (
     status_platnosci VARCHAR(20) NOT NULL CHECK (status_platnosci IN ('opłacone', 'nieopłacone')),
     czy_dopuszczono_do_startu BOOLEAN,
     PRIMARY KEY (zglasza_sie, zglasza_sie_do),
-    FOREIGN KEY (zglasza_sie) REFERENCES OSADA(id_osady),
-    FOREIGN KEY (zglasza_sie_do) REFERENCES WYSCIG(nr_wyscigu)
+    FOREIGN KEY (zglasza_sie) REFERENCES OSADA(id_osady) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (zglasza_sie_do) REFERENCES WYSCIG(nr_wyscigu) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE WYNIKI (
@@ -87,6 +87,6 @@ CREATE TABLE WYNIKI (
     miejsce INT NOT NULL CHECK (miejsce > 0),
     czas TIME NOT NULL,
     PRIMARY KEY (uzyskane_w, uzyskane_przez),
-    FOREIGN KEY (uzyskane_w) REFERENCES WYSCIG(nr_wyscigu),
-    FOREIGN KEY (uzyskane_przez) REFERENCES OSADA(id_osady)
+    FOREIGN KEY (uzyskane_w) REFERENCES WYSCIG(nr_wyscigu) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (uzyskane_przez) REFERENCES OSADA(id_osady) ON DELETE CASCADE ON UPDATE CASCADE
 );
