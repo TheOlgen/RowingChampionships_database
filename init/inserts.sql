@@ -35,14 +35,7 @@ VALUES
 ('01112099999', 'Grzegorz', 'Nowicki', '2001-11-20', 'M', 'TWDW'),
 ('00050100001', 'Alicja', 'Pawlak', '2000-05-01', 'K', 'PTWTP'),
 ('87010400002', 'Robert', 'Sawicki', '1987-01-04', 'M', 'WI'),
-('98010112345', 'Jan', 'Kowalski', '1998-01-01', 'M', 'BTW'),
-('97050598765', 'Anna', 'Nowak', '1997-05-05', 'K', 'RBW'),
-('88030854321', 'Marek', 'Wiśniewski', '1988-03-08', 'M', 'AZSS'),
-('99090945678', 'Katarzyna', 'Lewandowska', '1999-09-09', 'K', 'AWFISG'),
-('03070512345', 'Paweł', 'Zieliński', '2003-07-05', 'M', 'PTW'),
-('95061234567', 'Maria', 'Wójcik', '1995-06-12', 'K', 'WTW'),
-('04040123456', 'Damian', 'Kamiński', '2004-04-01', 'M', 'TWDW'),
-('87080865432', 'Magdalena', 'Dąbrowska', '1987-08-08', 'K', 'PTWTP'),
+('04232205768', 'Olga', 'Rodziewicz', '2004-03-22', 'K', 'BTW'),
 ('94060600003', 'Olga', 'Maj', '1994-06-06', 'K', 'RTW');
 
 -- Dane do tabeli TRENER
@@ -58,58 +51,74 @@ VALUES
 (108, 'Ewa', 'Białek', 'PTWTP', '2026-05-01'),
 (109, 'Andrzej', 'Marciniak', 'WI', '2025-10-10'),
 (110, 'Karol', 'Żak', 'RTW', '2024-12-01'),
+(111, 'Piotr', 'Buliński', 'AWFISG', '2025-01-01'),
+(112, 'Ewa', 'Wiśniewska', 'AZSS', '2026-01-01'),
+(113, 'Andrzej', 'Górski','RBW', '2023-08-31'),
+(114, 'Joanna', 'Bąk', 'RBW','2025-11-15'),
+(115, 'Paweł', 'Sobczak', 'RBW', '2024-09-10'),
+(116, 'Monika', 'Pawlak', 'AZSS', '2023-12-31'),
+(117, 'Grzegorz', 'Malinowski', 'PTW', '2025-03-25'),
+(118, 'Agnieszka', 'Król', 'PTW', '2026-06-15'),
+(119, 'Wojciech', 'Czarnecki', 'WTW', '2024-04-01'),
+(120, 'Maria', 'Chmielewska', 'AZSS', '2025-08-15'),
 (121, 'Tomasz', 'Ormiński', 'BTW', '2025-12-31'),
-(122, 'Zbigniew', 'Nowak', 'WTW', '2025-12-31'),
-(111, 'Piotr', 'Buliński', 'AWFISG', '2025-01-01');
+(122, 'Zbigniew', 'Nowak', 'WTW', '2025-12-31');
 
 -- Dane do tabeli OSADA
 INSERT INTO OSADA (id_osady, nadzoruje, lodz)
 VALUES
-(1, 101, 'Czwórka podwójna'),
-(2, 102, 'Ósemka'),
-(3, 103, 'Dwójka podwójna'),
-(4, 104, 'Jedynka'),
-(5, 105, 'Dwójka bez sternika'),
-(6, 106, 'Czwórka ze sternikiem'),
-(7, 107, 'Ósemka'),
-(8, 108, 'Czwórka podwójna'),
-(9, 109, 'Dwójka podwójna'),
-(10, 110, 'Jedynka');
+(1, 101, 'Czwórka podwójna mezczyzn'),
+(2, 102, 'Ósemka kobiet'),
+(3, 103, 'Dwójka mezczyzn'),
+(4, 104, 'Jedynka mezczyczn'),
+(5, 105, 'Dwójka mezczyzn'),
+(6, 106, 'Czwórka ze sternikiem kobiet'),
+(7, 107, 'jedynka meska'),
+(8, 108, 'Czwórka mezczyzn'),
+(9, 109, 'Dwójka kobiet'),
+(10, 110, 'Jedynka kobiet'),
+(11, 121, 'Jedynka kobiet'),
+(12, 122, 'Jedynka kobiet'),
+(13, 109, 'Dwójka kobiet');
 
 -- Dane do tabeli CZŁONEK_OSADY
 INSERT INTO CZŁONEK_OSADY (przynalezy, nalezy_do, czy_sternik)
 VALUES
 ('98010112345', 1, FALSE),
-('97050598765', 1, FALSE),
-('88030854321', 1, TRUE),
+('01010111111', 1, FALSE),
+('88030854321', 1, FALSE),
+('04040123456', 1, FALSE),
 ('99090945678', 2, FALSE),
-('03070512345', 2, TRUE),
-('95061234567', 3, FALSE),
-('04040123456', 3, FALSE),
-('87080865432', 4, TRUE),
-('01010111111', 4, FALSE),
-('96060622222', 5, FALSE),
-('05121233333', 5, TRUE),
-('93031544444', 6, FALSE),
-('91020255555', 6, TRUE),
-('99071366666', 7, FALSE),
+('97050598765', 2, TRUE),
+('95061234567', 2, FALSE),
+('87080865432', 2, FALSE),
+('93031544444', 2, FALSE),
+('96060622222', 2, FALSE),
+('99071366666', 2, FALSE),
+('92041488888', 2, FALSE),
+('00050100001', 2, FALSE),
+('01010111111', 3, FALSE),
+('05121233333', 3, FALSE),
+('91020255555', 4, FALSE),
+('88051177777', 5, FALSE),
+('01112099999', 5, FALSE),
+('04232205768', 6, FALSE),
+('97050598765', 6, FALSE),
+('87080865432', 6, FALSE),
+('00050100001', 6, FALSE),
+('99090945678', 6, TRUE),
 ('88051177777', 7, FALSE),
-('92041488888', 8, TRUE),
 ('01112099999', 8, FALSE),
-('00050100001', 9, FALSE),
-('87010400002', 9, TRUE),
-('94060600003', 10, FALSE),
-('05121233333', 10, TRUE),
-('99090945678', 1, FALSE),
-('03070512345', 2, FALSE),
-('95061234567', 3, TRUE),
-('04040123456', 4, FALSE),
-('87080865432', 5, FALSE),
-('01010111111', 6, TRUE),
-('96060622222', 7, FALSE),
 ('05121233333', 8, FALSE),
-('93031544444', 9, TRUE),
-('91020255555', 10, FALSE);
+('91020255555', 8, FALSE),
+('88051177777', 8, FALSE);
+('00050100001', 9, FALSE),
+('94060600003', 9, FALSE),
+('99090945678', 10, FALSE),
+('95061234567', 11, FALSE),
+('87080865432', 12, FALSE),
+('96060622222', 13, FALSE),
+('93031544444', 13, FALSE),
 
 
 -- Dane do tabeli SĘDZIA
@@ -155,6 +164,7 @@ VALUES
 ('M4x', 'Czwórka podwójna mężczyzn', 4, 'M', NULL, FALSE),
 ('M2-', 'Dwójka bez sternika mężczyzn', 2, 'M', NULL, FALSE),
 ('M4-', 'Czwórka bez sternika mężczyzn', 4, 'M', NULL, FALSE),
+('M4+', 'Czwórka ze sternikiem mężczyzn', 4, 'M', NULL, TRUE),
 ('M8+', 'Ósemka mężczyzn', 8, 'M', NULL, TRUE),
 ('LM2x', 'Dwójka podwójna wagi lekkiej mężczyzn', 2, 'M', NULL, FALSE),
 ('JM2x', 'Dwójka podwójna mężczyzn kategorii juniorów', 2, 'M', 18, FALSE),
@@ -166,30 +176,114 @@ VALUES
 ('W4x', 'Czwórka podwójna kobiet', 4, 'K', NULL, FALSE),
 ('W2-', 'Dwójka bez sterniczki kobiet', 2, 'K', NULL, FALSE),
 ('W4-', 'Czwórka bez sterniczki kobiet', 4, 'K', NULL, FALSE),
+('W4+', 'Czwórka ze sternikiem kobiet', 4, 'K', NULL, TRUE),
 ('W8+', 'Ósemka kobiet', 8, 'K', NULL, TRUE),
-('LW2x', 'Dwójka podwójna wagi lekkiej kobiet', 2, 'K', NULL, FALSE);
+('LW2x', 'Dwójka podwójna wagi lekkiej kobiet', 2, 'K', NULL, FALSE),
 ('JW1x', 'Jedynka kobiet kategorii juniorów', 1, 'K', 18, FALSE),
-('JW4x', 'Czwórka podwójna kobiet kategorii juniorów', 4, 'K', 18, FALSE),
+('JW4x', 'Czwórka podwójna kobiet kategorii juniorów', 4, 'K', 18, FALSE);
 
 
 -- Dane do tabeli WYŚCIG
-INSERT INTO WYŚCIG (nr_wyscigu, data, sedziuje, godzina, przypisany_do, opis)
+INSERT INTO WYSCIG (nr_wyscigu, data, sedziuje, godzina, przypisany_do, opis)
 VALUES
-(1, '2024-06-15', 201, '09:00:00', 'JW1x', 'Wyścig juniorek'),
-(2, '2024-06-15', 202, '09:30:00', 'JM2x', 'Wyścig juniorów'),
-(3, '2024-06-15', 203, '10:00:00', 'JW4x', 'Czwórki podwójne juniorek');
+(1, '2024-06-01', 201, '10:00:00', 'M1x', 'Eliminacje Mężczyzn Jedynki'),
+(2, '2024-06-01', 202, '10:30:00', 'M2x', 'Eliminacje Mężczyzn Dwójki Podwójne'),
+(3, '2024-06-01', 203, '11:00:00', 'W1x', 'Eliminacje Kobiet Jedynki'),
+(4, '2024-06-01', 204, '11:30:00', 'W2x', 'Eliminacje Kobiet Dwójki Podwójne'),
+(5, '2024-06-01', 205, '12:00:00', 'M4x', 'Eliminacje Mężczyzn Czwórki Podwójne'),
+(6, '2024-06-01', 206, '12:30:00', 'W4x', 'Eliminacje Kobiet Czwórki Podwójne'),
+(7, '2024-06-01', 207, '13:00:00', 'M2-', 'Eliminacje Mężczyzn Dwójki Bez Sternika'),
+(8, '2024-06-01', 208, '13:30:00', 'W2-', 'Eliminacje Kobiet Dwójki Bez Sterniczki'),
+(9, '2024-06-02', 209, '10:00:00', 'M1x', 'Finał Mężczyzn Jedynki'),
+(10, '2024-06-02', 210, '10:30:00', 'M2x', 'Finał Mężczyzn Dwójki Podwójne'),
+(11, '2024-06-02', 211, '11:00:00', 'W1x', 'Finał Kobiet Jedynki'),
+(12, '2024-06-02', 212, '11:30:00', 'W2x', 'Finał Kobiet Dwójki Podwójne'),
+(13, '2024-06-02', 213, '12:00:00', 'M4x', 'Finał Mężczyzn Czwórki Podwójne'),
+(14, '2024-06-02', 214, '12:30:00', 'W4x', 'Finał Kobiet Czwórki Podwójne'),
+(15, '2024-06-02', 215, '13:00:00', 'M2-', 'Finał Mężczyzn Dwójki Bez Sternika'),
+(16, '2024-06-02', 216, '13:30:00', 'W2-', 'Finał Kobiet Dwójki Bez Sterniczki'),
+(17, '2024-06-01', 217, '14:00:00', 'M4-', 'Eliminacje Mężczyzn Czwórki Bez Sternika'),
+(18, '2024-06-01', 218, '14:30:00', 'W4-', 'Eliminacje Kobiet Czwórki Bez Sterniczki'),
+(19, '2024-06-02', 219, '14:00:00', 'M4-', 'Finał Mężczyzn Czwórki Bez Sternika'),
+(20, '2024-06-02', 220, '14:30:00', 'W4-', 'Finał Kobiet Czwórki Bez Sterniczki');
 
--- Dane do tabeli ZGŁOSZENIE_DO_WYŚCIGU
-INSERT INTO ZGŁOSZENIE_DO_WYŚCIGU (zglasza_sie, zglasza_sie_do, status_platnosci, czy_dopuszczono_do_startu)
+
+-- Rozszerzone dane do tabeli ZGŁOSZENIE_DO_WYSCIGU
+INSERT INTO ZGLOSZENIE_DO_WYSCIGU (zglasza_sie, zglasza_sie_do, status_platnosci, czy_dopuszczono_do_startu)
 VALUES
-(1, 1, 'opłacone', TRUE),
-(2, 2, 'opłacone', TRUE),
-(3, 3, 'nieopłacone', FALSE);
+-- Jedynki mężczyzn
+(4, 1, 'opłacone', TRUE),
+(7, 1, 'opłacone', TRUE),
+-- Dwójki mężczyzn
+(3, 2, 'opłacone', TRUE),
+(5, 2, 'opłacone', TRUE),
+-- Jedynki kobiet
+(10, 3, 'opłacone', TRUE),
+(11, 3, 'opłacone', TRUE),
+(12, 3, 'nieopłacone', FALSE),
+-- Dwójki kobiet
+(9, 4, 'opłacone', TRUE),
+(13, 4, 'opłacone', TRUE),
+-- Czwórki mężczyzn
+(1, 5, 'opłacone', TRUE),
+(8, 5, 'Nieopłacone', FALSE),
+-- Dwójki bez sternika kobiet
+(9, 8, 'opłacone', TRUE),
+(13, 8, 'opłacone', TRUE),
+-- Jedynki mężczyzn - finały
+(4, 9, 'opłacone', TRUE),
+(7, 9, 'opłacone', TRUE),
+-- Dwójki mężczyzn - finały
+(3, 10, 'opłacone', TRUE),
+(5, 10, 'opłacone', TRUE),
+-- Jedynki kobiet - finały
+(10, 11, 'opłacone', TRUE),
+(11, 11, 'opłacone', TRUE),
+-- Dwójki kobiet - finały
+(9, 12, 'opłacone', TRUE),
+(13, 12, 'opłacone', TRUE),
+-- Czwórki mężczyzn - finały
+(1, 13, 'opłacone', TRUE),
+(8, 13, 'opłacone', TRUE),
 
--- Dane do tabeli WYNIKI
+
+-- Rozszerzone dane do tabeli WYNIKI
 INSERT INTO WYNIKI (uzyskane_w, uzyskane_przez, miejsce, czas)
 VALUES
-(1, 1, 1, '00:07:45'),
-(2, 2, 1, '00:06:30'),
-(3, 3, 2, '00:08:15');
-
+-- Eliminacje M1x
+(1, 4, 1, '07:12.45'),
+(1, 7, 2, '07:18.20'),
+-- Eliminacje M2x
+(2, 3, 1, '06:45.32'),
+(2, 5, 2, '06:48.90'),
+-- Eliminacje W1x
+(3, 10, 1, '07:50.30'),
+(3, 11, 2, '07:54.10'),
+-- Eliminacje W2x
+(4, 9, 1, '07:45.32'),
+(4, 13, 2, '07:49.87'),
+-- Eliminacje M4x
+(5, 1, 1, '06:20.50'),
+(5, 8, 2, '06:24.75'),
+-- Eliminacje W4x
+(6, 6, 1, '06:55.32'),
+-- Eliminacje W2- (Dwójki bez sterniczki kobiet)
+(8, 9, 1, '07:30.55'),
+(8, 13, 2, '07:35.12'),
+-- Finały M1x
+(9, 4, 1, '07:10.20'),
+(9, 7, 2, '07:15.60'),
+-- Finały M2x
+(10, 3, 1, '06:42.50'),
+(10, 5, 2, '06:45.30'),
+-- Finały W1x
+(11, 10, 1, '07:48.90'),
+(11, 11, 2, '07:52.25'),
+-- Finały W2x
+(12, 9, 1, '07:40.28'),
+(12, 13, 2, '07:43.91')
+-- Finały M4x
+(13, 1, 1, '06:18.45'),
+(13, 8, 2, '06:22.30'),
+-- Finały W4x
+(14, 6, 1, '06:50.12');
