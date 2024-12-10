@@ -1,20 +1,12 @@
+-- Please replace "YourDatabaseName" with the actual database name
+USE regaty;
 -- Dane do tabeli KLUB 
 INSERT INTO `klub` (`skrot_nazwy`, `pelna_nazwa`, `wzor_wiosel`) 
-  VALUES 
-    ('BTW', 'Bydgoskie Towarzystwo Wioślarskie', 'Niebieskie pióro z odwróconym szewronem z dwóch pasków: białego i czerwonego.'), 
-    ('RBW', 'Sekcja Wioślarska Klubu Sportowego „Posnania” w Poznaniu', 'Złoto-żółte pióro z 3 pionowymi pasami: białym-czerwonym-białym.'),
-    ('AZSS', 'Akademicki Związek Sportowy Organizacja Środowiskowa w Szczecinie', 'Czerwone pióro z białym paskiem w osi trzonu wiosła.'), 
-    ('AWFISG', ' Akademicki Związek Sportowy przy Akademii Wychowania Fizycznego i Sportu', 'Białe pióro z ciemnoniebieskim paskiem w osi trzonu wiosła.'), 
-    ('PTW', 'Płockie Towarzystwo Wioślarskie', 'Biały pas na górze, czerwony na dole, trójkątny ciemnoniebieski klin z prawej.'),
-    ('WTW', 'Warszawskie Towarzystwo Wioślarskie', 'Białe pióro z dwoma pionowymi ciemnoniebieskimi pasami.')
-    ('TWDW', 'Towarzystwo Wisła dla Wioślarzy', 'Pomarańczowe pióro z białym szewronem i niebieskim trójkątem na końcówce'), 
-    ('PTWTP', 'Poznanskie Towarzystwo Wioslarskie Tryton Poznan', 'Ciemnoniebieskie pióro z białym pionowym pasem.'), 
-    ('WI', 'Wir Ilawa', 'Białe pióro z dwoma pionowymi pasami: zielonym i czerwonym.'), 
-    ('RTW', 'Regionalne Towarzystwo Wioślarskie Bydgostia Bydgoszcz', 'Białe pióro z trzema ukośnymi pasami: dwoma cienkimi czerwonymi, a w środku grubym ciemnoniebieskim.');
+  VALUES ('BTW', 'Bydgoskie Towarzystwo Wioślarskie', 'Niebieskie pióro z odwróconym szewronem z dwóch pasków: białego i czerwonego.'), ('RBW', 'Sekcja Wioślarska Klubu Sportowego "Posnania" w Poznaniu', 'Złoto-żółte pióro z 3 pionowymi pasami: białym-czerwonym-białym.'),('AZSS', 'Akademicki Związek Sportowy Organizacja Środowiskowa w Szczecinie', 'Czerwone pióro z białym paskiem w osi trzonu wiosła.'), ('AWFISG', ' Akademicki Związek Sportowy przy Akademii Wychowania Fizycznego i Sportu', 'Białe pióro z ciemnoniebieskim paskiem w osi trzonu wiosła.'), ('PTW', 'Płockie Towarzystwo Wioślarskie', 'Biały pas na górze, czerwony na dole, trójkątny ciemnoniebieski klin z prawej.'),('WTW', 'Warszawskie Towarzystwo Wioślarskie', 'Białe pióro z dwoma pionowymi ciemnoniebieskimi pasami.'), ('TWDW', 'Towarzystwo Wisła dla Wioślarzy', 'Pomarańczowe pióro z białym szewronem i niebieskim trójkątem na końcówce'), ('PTWTP', 'Poznanskie Towarzystwo Wioslarskie Tryton Poznan', 'Ciemnoniebieskie pióro z białym pionowym pasem.'), ('WI', 'Wir Ilawa', 'Białe pióro z dwoma pionowymi pasami: zielonym i czerwonym.'), ('RTW', 'Regionalne Towarzystwo Wioślarskie Bydgostia Bydgoszcz', 'Białe pióro z trzema ukośnymi pasami: dwoma cienkimi czerwonymi, a w środku grubym ciemnoniebieskim.');
 
 
 -- Dane do tabeli ZAWODNIK
-INSERT INTO ZAWODNIK (pesel, imie, nazwisko, data_urodzenia, plec, trenuje)
+INSERT INTO ZAWODNIK (pesel, imie, nazwisko, data_urodzenia, plec, trenuje_w)
 VALUES
 ('98010112345', 'Jan', 'Kowalski', '1998-01-01', 'M', 'BTW'),
 ('97050598765', 'Anna', 'Nowak', '1997-05-05', 'K', 'RBW'),
@@ -39,7 +31,7 @@ VALUES
 ('94060600003', 'Olga', 'Maj', '1994-06-06', 'K', 'RTW');
 
 -- Dane do tabeli TRENER
-INSERT INTO TRENER (nr_licencji_trenera, imie, nazwisko, pracuje, data_waznosci_licencji)
+INSERT INTO TRENER (nr_licencji_trenera, imie, nazwisko, pracuje_w, data_waznosci_licencji)
 VALUES
 (101, 'Paulina', 'Straszewska', 'BTW', '2025-12-31'),
 (102, 'Rafał', 'Malinowski', 'RBW', '2026-03-15'),
@@ -111,14 +103,14 @@ VALUES
 ('01112099999', 8, FALSE),
 ('05121233333', 8, FALSE),
 ('91020255555', 8, FALSE),
-('88051177777', 8, FALSE);
+('88051177777', 8, FALSE),
 ('00050100001', 9, FALSE),
 ('94060600003', 9, FALSE),
 ('99090945678', 10, FALSE),
 ('95061234567', 11, FALSE),
 ('87080865432', 12, FALSE),
 ('96060622222', 13, FALSE),
-('93031544444', 13, FALSE),
+('93031544444', 13, FALSE);
 
 
 -- Dane do tabeli SĘDZIA
@@ -208,82 +200,58 @@ VALUES
 (20, '2024-06-02', 220, '14:30:00', 'W4-', 'Finał Kobiet Czwórki Bez Sterniczki');
 
 
--- Rozszerzone dane do tabeli ZGŁOSZENIE_DO_WYSCIGU
+
 INSERT INTO ZGLOSZENIE_DO_WYSCIGU (zglasza_sie, zglasza_sie_do, status_platnosci, czy_dopuszczono_do_startu)
 VALUES
--- Jedynki mężczyzn
 (4, 1, 'opłacone', TRUE),
 (7, 1, 'opłacone', TRUE),
--- Dwójki mężczyzn
 (3, 2, 'opłacone', TRUE),
 (5, 2, 'opłacone', TRUE),
--- Jedynki kobiet
 (10, 3, 'opłacone', TRUE),
 (11, 3, 'opłacone', TRUE),
 (12, 3, 'nieopłacone', FALSE),
--- Dwójki kobiet
 (9, 4, 'opłacone', TRUE),
 (13, 4, 'opłacone', TRUE),
--- Czwórki mężczyzn
 (1, 5, 'opłacone', TRUE),
 (8, 5, 'Nieopłacone', FALSE),
--- Dwójki bez sternika kobiet
 (9, 8, 'opłacone', TRUE),
 (13, 8, 'opłacone', TRUE),
--- Jedynki mężczyzn - finały
 (4, 9, 'opłacone', TRUE),
 (7, 9, 'opłacone', TRUE),
--- Dwójki mężczyzn - finały
 (3, 10, 'opłacone', TRUE),
 (5, 10, 'opłacone', TRUE),
--- Jedynki kobiet - finały
 (10, 11, 'opłacone', TRUE),
 (11, 11, 'opłacone', TRUE),
--- Dwójki kobiet - finały
 (9, 12, 'opłacone', TRUE),
 (13, 12, 'opłacone', TRUE),
--- Czwórki mężczyzn - finały
 (1, 13, 'opłacone', TRUE),
-(8, 13, 'opłacone', TRUE),
+(8, 13, 'opłacone', TRUE);
 
 
 -- Rozszerzone dane do tabeli WYNIKI
 INSERT INTO WYNIKI (uzyskane_w, uzyskane_przez, miejsce, czas)
 VALUES
--- Eliminacje M1x
 (1, 4, 1, '07:12.45'),
 (1, 7, 2, '07:18.20'),
--- Eliminacje M2x
 (2, 3, 1, '06:45.32'),
 (2, 5, 2, '06:48.90'),
--- Eliminacje W1x
 (3, 10, 1, '07:50.30'),
 (3, 11, 2, '07:54.10'),
--- Eliminacje W2x
 (4, 9, 1, '07:45.32'),
 (4, 13, 2, '07:49.87'),
--- Eliminacje M4x
 (5, 1, 1, '06:20.50'),
 (5, 8, 2, '06:24.75'),
--- Eliminacje W4x
 (6, 6, 1, '06:55.32'),
--- Eliminacje W2- (Dwójki bez sterniczki kobiet)
 (8, 9, 1, '07:30.55'),
 (8, 13, 2, '07:35.12'),
--- Finały M1x
 (9, 4, 1, '07:10.20'),
 (9, 7, 2, '07:15.60'),
--- Finały M2x
 (10, 3, 1, '06:42.50'),
 (10, 5, 2, '06:45.30'),
--- Finały W1x
 (11, 10, 1, '07:48.90'),
 (11, 11, 2, '07:52.25'),
--- Finały W2x
 (12, 9, 1, '07:40.28'),
-(12, 13, 2, '07:43.91')
--- Finały M4x
+(12, 13, 2, '07:43.91'),
 (13, 1, 1, '06:18.45'),
 (13, 8, 2, '06:22.30'),
--- Finały W4x
 (14, 6, 1, '06:50.12');
